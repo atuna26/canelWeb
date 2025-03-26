@@ -19,10 +19,12 @@ function App() {
               <Navbar />
             </div>
           </div>
-            <div className={`${styles.boxWidth}`}>
-              <Routes>
-                <Route path="/" element={<Main />} />
-              </Routes>
+            <div className={` ${styles.flexStart}`}>
+              <div className={`${styles.boxWidth}`}>
+                <Routes>
+                  <Route path="/" element={<Main />} />
+                </Routes>
+              </div>
             </div>
         </div>
       ) : (
