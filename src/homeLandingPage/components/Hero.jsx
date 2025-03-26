@@ -1,7 +1,8 @@
 import styles from "../../style";
 import cnlbanner from "../../assets/cnlbanner.png";
 import bannerVideo from "../../assets/bannerVideo.mp4";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import Test from "./test";
 
 const Hero = () => {
   const videoRef = useRef(null);
@@ -12,6 +13,19 @@ const Hero = () => {
     }
   }
   , [videoRef]);
+   const [isMobile, setIsMobile] = useState(false);
+
+   useEffect(() => {
+     // Ekran genişliğini kontrol et
+     const handleResize = () => {
+       setIsMobile(window.innerWidth <= 1060); 
+     };
+     handleResize();
+     window.addEventListener('resize', handleResize);
+     return () => {
+       window.removeEventListener('resize', handleResize);
+     };
+   }, []);
 
   return (
     <section className={`flex flex-col w-full justify-center items-center`}>
@@ -23,7 +37,93 @@ const Hero = () => {
           alt=""
         />
       </div>
-      <div className="flex flex-col justify-between items-center h-[200px] w-full px-5 relative ">
+      {isMobile && (
+        <div className="flex flex-col justify-between items-center h-[300px] w-full px-5 relative ">
+        <svg
+          width="100%"
+          height="100%"
+          style={{ position: "relative", top: 0, left: 0 }}
+        >
+          <defs>
+            <mask id="text-mask">
+              {/* Üst Metin */}
+              <text
+                x="50%"
+                y="20%"
+                fontSize="50"
+                fontWeight="bold"
+                textAnchor="middle"
+                dominantBaseline="middle"
+                fill="white"
+              >
+                YENİLENEBİLİR
+              </text>
+              <text
+                x="50%"
+                y="35%"
+                fontSize="50"
+                fontWeight="bold"
+                textAnchor="middle"
+                dominantBaseline="middle"
+                fill="white"
+              >
+                ENERJİYLE
+              </text>
+
+              {/* Orta Metin */}
+              <text
+                x="50%"
+                y="55%"
+                fontSize="90"
+                fontWeight="bold"
+                textAnchor="middle"
+                dominantBaseline="middle"
+                fill="white"
+              >
+                CANEL
+              </text>
+
+              {/* Alt Metin */}
+              <text
+                x="50%"
+                y="73%"
+                fontSize="50"
+                fontWeight="bold"
+                textAnchor="middle"
+                dominantBaseline="middle"
+                fill="white"
+              >
+                ÇOK DAHA
+              </text>
+              <text
+                x="50%"
+                y="88%"
+                fontSize="50"
+                fontWeight="bold"
+                textAnchor="middle"
+                dominantBaseline="middle"
+                fill="white"
+              >
+                GÜÇLÜ
+              </text>
+            </mask>
+          </defs>
+          
+
+          <foreignObject width="100%" height="100%" mask="url(#text-mask)">
+            <video
+              src={bannerVideo}
+              autoPlay
+              ref={videoRef}
+              loop
+              muted
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            />
+          </foreignObject>
+        </svg>
+      </div>
+      )}
+      {!isMobile && (<div className="flex flex-col justify-between items-center h-[200px] w-full px-5 relative ">
         <svg
           width="100%"
           height="100%"
@@ -85,6 +185,9 @@ const Hero = () => {
           </foreignObject>
         </svg>
       </div>
+        )}
+      
+      
       
       
    
