@@ -1,8 +1,6 @@
-import styles from "../../style";
 import cnlbanner from "../../assets/cnlbanner.png";
 import bannerVideo from "../../assets/bannerVideo.mp4";
 import { useEffect, useRef, useState } from "react";
-import Test from "./test";
 
 const Hero = () => {
   const videoRef = useRef(null);
@@ -28,7 +26,7 @@ const Hero = () => {
    }, []);
 
   return (
-    <section className={`flex flex-col w-full justify-center items-center`}>
+    <section className={`flex flex-col col-span-2 z-10 w-full justify-center items-center`}>
      
       <div className="w-full flex justify-end">
         <img

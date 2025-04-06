@@ -5,9 +5,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#1E293B", // Deep Navy Blue (for dark backgrounds)
-        secondary: "#0F172A", // Dark Blue (for contrast)
-        accent: "#3B82F6", // Vibrant Blue (for buttons, highlights)
+        primary: "#5D4037", // Deep Warm Brown (for dark backgrounds)
+      secondary: "#4E342E", // Dark Chocolate Brown (for contrast)
+      accent: "#D7A46A", // Soft Pastel Caramel (for buttons, highlights)
         background: "#F3F4F6", // Light Grayish White (for sections)
         gray: "#ECECEC", // Neutral Gray (for text, borders)
         white: "#F9FAFB", // Off-white (for clean design)
@@ -18,6 +18,7 @@ export default {
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
+        abel:["Abel", "sans-serif"],
       },
       boxShadow: {
         'glow': "0px 0px 70px 10px rgba(30,59,138,0.9)",

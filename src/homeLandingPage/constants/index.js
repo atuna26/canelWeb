@@ -4,7 +4,7 @@ export const navLinks = [
         title:"Kurumsal"
     },
     {
-        id:"urunler",
+        id:"urunler/tum-urunler",
         title:"Ürünler"
     },
     {
